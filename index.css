@@ -1,0 +1,144 @@
+::-webkit-scrollbar {
+   background-color: #e1e1e1 !important;
+   border-radius: 10px;
+   width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+   background: #ff7920 !important;
+   border-radius: 10px;
+   width: 10px;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   width: 100%;
+   height: 100vh;
+   background-color: #12121f;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #111111;
+   font-family: 'Open Sans', Geneva, Verdana, sans-serif;
+   overflow: hidden;
+}
+
+.main-container {
+   width: 1160px;
+   height: 650px;
+   background-color: #fafafa;
+   position: relative;
+   overflow: hidden;
+   display: grid;
+   grid-template-columns: 120px 1fr;
+   z-index: 1;
+}
+
+.main-container .container-wrapper {
+   position: relative;
+}
+
+.container-wrapper .menu-container {
+   width: 100%;
+   height: 100%;
+   position: absolute !important;
+}
+
+.menu-container.calendar {
+   transform: translateX(0);
+   background-color: #ff7920;
+}
+
+.menu-container.clock {
+   transform: translateX(100%);
+   background-color: #ffe920;
+}
+
+.menu-container.stopwatch {
+   transform: translateX(200%);
+   background-color: #84ff20;
+}
+
+.menu-container.timer {
+   transform: translateX(300%);
+   background-color: #20ff75;
+}
+
+.menu-btn-wrapper {
+   color: #12121f;
+   display: grid;
+   grid-template-rows: repeat(4, 1fr);
+   place-items: center;
+   box-shadow: 4px 0 8px rgba(72, 72, 109, 0.3);
+   z-index: 2;
+}
+
+.menu-btn {
+   display: grid;
+   grid-template-rows: 1fr 30px;
+   place-items: center;
+   cursor: pointer;
+}
+
+.menu-btn img {
+   width: 30%;
+}
+
+.menu-btn div {
+   font-weight: 600;
+}
+
+.menu-container.open {
+   transform: translateX(0);
+}
+
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+   .main-container {
+      width: 90%;
+      grid-template-columns: 100px 1fr;
+   }
+}
+
+@media (max-width: 992px) {
+   .main-container {
+      width: 100%;
+      height: 100vh;
+      grid-template-columns: 80px 1fr;
+   }
+
+   .menu-btn div {
+      font-size: .7em;
+   }
+}
+
+@media (max-width: 768px) {
+   .main-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 60px;
+   }
+
+   .container-wrapper {
+      order: 1;
+   }
+
+   .menu-btn-wrapper {
+      order: 2;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(4, 1fr);
+      box-shadow: 0 -2px 10px rgba(18, 18, 31, .1);
+   }
+
+   .menu-btn {
+      grid-template-rows: 1fr 20px;
+   }
+
+   .menu-btn img {
+      width: 25px;
+   }
+}

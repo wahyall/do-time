@@ -1,0 +1,232 @@
+.menu-container.stopwatch {
+   width: 100%;
+   height: 650px;
+   background-color: #fafafa;
+   display: grid;
+   grid-template-columns: 50% 50%;
+   overflow: hidden;
+   position: relative;
+}
+
+.menu-container.stopwatch .left {
+   display: grid;
+   grid-template-rows: 100px 150px;
+   place-items: center;
+   align-content: center;
+   background: linear-gradient(to right, #ff7920, #ff924a);
+   box-shadow: 7px 0 8px rgba(255, 146, 74, .7);
+   z-index: 100;
+   overflow: hidden;
+   position: relative;
+}
+
+.menu-container.stopwatch .right {
+   color: #091921;
+   overflow: hidden;
+   position: relative;
+   display: grid;
+   grid-template-rows: 15% 85%;
+}
+
+.menu-container.stopwatch .stopwatch {
+   padding: 10px 20px;
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   font-size: 7em;
+   font-weight: 600;
+   justify-items: center;
+   justify-content: center;
+   margin-bottom: 10px;
+   color: #fafafa;
+}
+
+.stopwatch-buttons {
+   padding: 10px 20px;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   font-size: 1.5em;
+   gap: 50px;
+   justify-items: center;
+   justify-content: center;
+}
+
+.stopwatch-buttons .terminator,
+.stopwatch-buttons .setter {
+   width: 120px;
+   height: 40px;
+   background-color: #fafafa;
+   color: #ff7920;
+   font-weight: 600;
+   border-radius: 50px;
+   cursor: pointer;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   overflow: hidden;
+}
+
+.stopwatch-buttons .terminator div,
+.stopwatch-buttons .setter div {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   bottom: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #fafafa
+}
+
+.stopwatch-buttons .setter div {
+   background: #fafafa
+}
+
+.stopwatch-buttons .terminator:active,
+.stopwatch-buttons .setter:active {
+   opacity: .8;
+}
+
+.stopwatch-buttons .start {
+   z-index: 2;
+}
+
+.stopwatch-buttons .stop {
+   z-index: 1;
+}
+
+.stopwatch-buttons .reset {
+   z-index: 1;
+}
+
+.stopwatch-buttons .lap {
+   z-index: 2;
+}
+
+.stopwatch-buttons .cover {
+   z-index: 3;
+   background-color: #fafafa !important;
+   opacity: 0;
+}
+
+.menu-container.stopwatch .right .title {
+   margin: 20px;
+   font-weight: 600;
+   border-bottom: 2px solid #ff7920;
+   font-size: 2em;
+}
+
+.putaran {
+   width: 100%;
+   height: 100%;
+   overflow-y: auto;
+}
+
+.putaran .item {
+   margin-bottom: 10px;
+   display: grid;
+   grid-template-columns: 20% 80%;
+   justify-items: start;
+   justify-content: center;
+   font-size: 1.8em;
+   font-weight: 600;
+}
+
+.putaran .item .lap-number {
+   font-size: 1.8em;
+   width: 100%;
+   display: grid;
+   place-items: center;
+   color: #ff7920;
+   opacity: .6;
+}
+
+.putaran .item .lap-result div:first-child {
+   font-size: 1.4em;
+   font-weight: 600;
+}
+
+.putaran .item .lap-result div:last-child {
+   font-size: 20px;
+}
+
+@media (max-width: 1200px) {
+   .menu-container.stopwatch .stopwatch {
+      font-size: 5.5em;
+   }
+}
+
+@media (max-width: 992px) {
+   .menu-container.stopwatch {
+      width: 100%;
+      height: 100vh;
+   }
+
+   .menu-container.stopwatch .left {
+      grid-template-rows: 150px 100px;
+   }
+
+   .menu-container.stopwatch .right .title {
+      margin: 25px 20px;
+   }
+
+   .menu-container.stopwatch .stopwatch {
+      font-size: 5em;
+   }
+
+   .stopwatch-buttons {
+      gap: 30px;
+      font-size: 1.4em;
+   }
+
+   .stopwatch-buttons .terminator,
+   .stopwatch-buttons .setter {
+      width: 100px;
+      height: 35px;
+   }
+
+   .putaran .item .lap-number {
+      font-size: 1.6em;
+   }
+}
+
+@media (max-width: 768px) {
+   .menu-container.stopwatch {
+      height: calc(100vh - 60px) !important;
+      grid-template-columns: 1fr;
+      grid-template-rows: 35% 65%;
+   }
+
+   .menu-container.stopwatch .left {
+      grid-template-rows: 50% 50%;
+   }
+
+   .menu-container.stopwatch .right .title {
+      margin: 10px 20px;
+   }
+
+   .putaran .item {
+      font-size: 1.5em;
+   }
+
+   .putaran .item .lap-number {
+      font-size: 1.5em;
+   }
+}
+
+@media (max-width: 576px) {
+   .menu-container.stopwatch {
+      grid-template-columns: 1fr;
+      grid-template-rows: 30% 70%;
+   }
+
+   .menu-container.stopwatch .stopwatch {
+      font-size: 4em;
+   }
+
+   .putaran .item {
+      font-size: 1.3em;
+   }
+}

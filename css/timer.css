@@ -1,0 +1,370 @@
+.menu-container.timer {
+   width: 100$;
+   height: 650px;
+   background-color: #efefef;
+   display: grid;
+   grid-template-columns: 50% 50%;
+   overflow: hidden;
+   position: relative;
+}
+
+.menu-container.timer .left {
+   min-height: 320px;
+   display: grid;
+   grid-template-rows: 340px 60px;
+   gap: 60px;
+   grid-template-columns: 100%;
+   place-items: center;
+   align-content: center;
+   background: rgb(255, 121, 32);
+   box-shadow: 7px 0 8px rgba(255, 121, 32, .7);
+   z-index: 100;
+   overflow: hidden;
+   position: relative;
+}
+
+.menu-container.timer .right {
+   min-height: 300px;
+   color: #091921;
+   overflow: hidden;
+   position: relative;
+   display: grid;
+   grid-template-rows: 15% 85%;
+   align-items: center;
+}
+
+.menu-container.timer .right .title {
+   margin: 20px;
+   font-weight: 600;
+   border-bottom: 2px solid #ff7920;
+   font-size: 2em;
+}
+
+.menu-container.timer .wrapper {
+   width: 100%;
+   height: 100%;
+   padding: 20px 0;
+   margin: 0 auto;
+   position: relative;
+   display: grid;
+   place-items: center;
+   overflow: hidden;
+}
+
+.menu-container.timer .starter {
+   width: 80%;
+   height: 100%;
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   font-size: 8em;
+   font-weight: 600;
+   justify-items: center;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   z-index: 1;
+   color: #efefef;
+   display: none;
+}
+
+.menu-container.timer .setter {
+   width: 100%;
+   position: absolute;
+   z-index: 2;
+}
+
+.control-button {
+   width: 100%;
+   display: grid;
+   grid-template-columns: 150px 150px;
+   gap: 20px;
+   justify-content: center;
+}
+
+.control-button div {
+   position: relative;
+}
+
+.control-button span {
+   width: 100%;
+   height: 40px;
+   color: #ff7920;
+   background: #fafafa;
+   font-weight: 600;
+   font-size: 24px;
+   border-radius: 50px;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   z-index: 1;
+}
+
+.control-button span:not(.cover):active {
+   opacity: .8;
+}
+
+
+.control-button .cover {
+   width: 100%;
+   height: 40px;
+   background-color: #efefef;
+   opacity: .6;
+   z-index: 3;
+   cursor: default;
+}
+
+.activities {
+   width: 100%;
+   height: 90%;
+   padding: 0 10px;
+   box-sizing: border-box;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+   grid-template-rows: repeat(auto-fit, 120px);
+   justify-items: center;
+   row-gap: 20px;
+   position: relative;
+   overflow-y: auto;
+   overflow-x: hidden;
+}
+
+.activities .activity-item {
+   color: #091921;
+   height: 120px;
+   width: 90%;
+   background-color: #efefef;
+   border: 2px solid #ffc49d;
+   border-radius: 6px;
+   box-sizing: border-box;
+   display: grid;
+   grid-template-rows: 60% 40%;
+   padding: 10px;
+   font-family: 'Poppins';
+   cursor: pointer;
+   position: relative;
+}
+
+.activity-item.selected-timer {
+   border-color: #ff7920;
+}
+
+.activity-item .activity-name {
+   width: 100%;
+   height: 100%;
+   display: grid;
+   text-align: center;
+   font-weight: 600;
+   font-size: 1em;
+   line-height: 1.3em;
+}
+
+.activity-item .activity-timer {
+   width: 100%;
+   height: 100%;
+   display: grid;
+   place-items: center end;
+   text-align: center;
+   font-weight: 600;
+   font-size: 1.2em;
+}
+
+.activity-item .delete {
+   font-size: 1em;
+   position: absolute;
+   left: 50%;
+   right: 50%;
+   bottom: -15px;
+   width: 30px;
+   height: 30px;
+   display: grid;
+   place-items: center;
+   color: #efefef;
+   border-radius: 50%;
+   background-color: #ff7920;
+   transform: translate(-50%, 0);
+   display: none;
+}
+
+.activities .add-button {
+   font-size: 4em;
+   color: #ff7920;
+   height: 120px;
+   width: 90%;
+   background-color: #efefef;
+   border: 2px solid #ffc49d;
+   border-radius: 6px;
+   box-sizing: border-box;
+   display: grid;
+   place-items: center;
+   font-family: 'Quicksand';
+   cursor: pointer;
+}
+
+.activities-disable {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   background-color: #efefef;
+   opacity: .7;
+   display: none;
+}
+
+.add-activity {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 50%;
+   background-color: #efefef;
+   box-shadow: 0 -4px 10px rgba(255, 121, 32, .6);
+   display: grid;
+   place-items: center;
+   box-sizing: border-box;
+   transition: .3s;
+   transform: translateY(110%);
+}
+
+.add-activity .input-activity-name {
+   border: none;
+   outline: none;
+   padding: 2px 10px;
+   border-bottom: 2px solid #ff7920;
+   width: 200px;
+   font-size: 1.4em;
+   text-align: center;
+   font-family: 'Poppins';
+   background-color: transparent;
+}
+
+.add-activity .input-activity-timer {
+   height: 100%;
+}
+
+.add-activity-header {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   justify-content: space-between;
+   place-items: center;
+}
+
+.add-activity-header .add-cancel,
+.add-activity-header .add-confirm {
+   font-size: 1.2em;
+   color: #ff7920;
+   font-family: 'Poppins';
+   cursor: pointer;
+}
+
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+   .menu-container.timer .starter {
+      font-size: 6em;
+   }
+}
+
+@media (max-width: 992px) {
+   .menu-container.timer {
+      width: 100%;
+      height: 100vh;
+   }
+
+   .menu-container.timer .left {
+      box-shadow: 0 7px 8px rgba(192, 77, 0, 0.4);
+      ;
+   }
+
+   .menu-container.timer .starter {
+      font-size: 5em;
+   }
+}
+
+@media (max-width: 768px) {
+   .menu-container.timer {
+      height: calc(100vh - 60px);
+   }
+
+   .menu-container.timer {
+      grid-template-columns: 1fr;
+      grid-template-rows: 50% 50%;
+   }
+
+   .menu-container.timer .left {
+      grid-template-rows: 85% 15%;
+      gap: 0;
+      align-content: space-between;
+   }
+
+   .menu-container.timer .right {
+      padding-top: 10px;
+      box-sizing: border-box;
+   }
+
+   .menu-container.timer .left .control-button {
+      height: 100%;
+      gap: 0 20px;
+      grid-template-columns: 100px 100px;
+   }
+
+   .menu-container.timer .left .control-button span {
+      font-size: 18px;
+      height: 30px;
+   }
+
+   .menu-container.timer .right .title {
+      margin: 5px 20px;
+      font-size: 1.6em;
+   }
+
+   .menu-container.timer .input-activity-name {
+      width: 140px;
+      font-size: 1.2em;
+   }
+
+   .add-activity-header .add-cancel,
+   .add-activity-header .add-confirm {
+      font-size: 1em;
+   }
+
+   .picker {
+      line-height: 1.4 !important;
+   }
+
+   .picker-picked {
+      line-height: 3.5rem !important;
+   }
+
+   .left .picker-item {
+      font-size: 1.8em !important;
+      padding: 0 0.5rem !important;
+   }
+
+   .right .picker-item {
+      font-size: 1.6rem !important;
+      padding: 0 0.5rem !important;
+   }
+
+   .left .picker-picked {
+      font-size: 2.5em !important;
+   }
+
+   .right .picker-picked {
+      font-size: 2.2em !important;
+   }
+
+   .picker-cell__header {
+      font-size: 1.4rem !important;
+   }
+
+   .add-activity {
+      height: 100%;
+      min-height: 280px;
+   }
+}
+
+@media (max-width: 576px) {
+   .menu-container.timer .starter {
+      font-size: 4em;
+   }
+}

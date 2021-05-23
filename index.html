@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="index.css">
+   <link rel="stylesheet" href="css/all.css">
+   <link rel="stylesheet" href="css/calendar.css">
+   <link rel="stylesheet" href="css/clock.css">
+   <link rel="stylesheet" href="css/stopwatch.css">
+   <link rel="stylesheet" href="dist/picker.css">
+   <link rel="stylesheet" href="css/timer.css">
+   <title>Do Time - All Time In One </title>
+</head>
+
+<body>
+   <div class="main-container">
+      <div class="menu-btn-wrapper">
+         <div class="menu-btn calendar">
+            <img src="img/calendar-selected.png" style="transform: scale(1.2);">
+            <div style="color: #ff7920;">Calendar</div>
+         </div>
+         <div class="menu-btn world-clock">
+            <img src="img/world-clock.png">
+            <div>World Clock</div>
+         </div>
+         <div class="menu-btn stopwatch">
+            <img src="img/stopwatch.png">
+            <div>Stopwatch</div>
+         </div>
+         <div class="menu-btn timer">
+            <img src="img/timer.png">
+            <div>Timer</div>
+         </div>
+      </div>
+      <div class="container-wrapper">
+         <div class="menu-container calendar">
+            <div class="control">
+               <div class="year-control">
+                  <div class="control-hamburger-month"
+                     style="display: grid; grid-template-rows: repeat(3, 5px); place-items: center; align-content: space-around; width: 100%; height: 50%;">
+                     <span style="background-color: #fafafa; width: 30px; height: 4px; border-radius: 5px;"></span>
+                     <span style="background-color: #fafafa; width: 30px; height: 4px; border-radius: 5px;"></span>
+                     <span style="background-color: #fafafa; width: 30px; height: 4px; border-radius: 5px;"></span>
+                  </div>
+                  <div class="year-left arrow">
+                     <i class="fas fa-chevron-left"></i>
+                  </div>
+                  <div class="year"></div>
+                  <div class="year-right arrow">
+                     <i class="fas fa-chevron-right"></i>
+                  </div>
+                  <div class="control-hamburger-event">
+                     <img src="img/navigation.png">
+                  </div>
+               </div>
+               <div class="month-control">
+                  <div onclick="changeMonth(1)">January</div>
+                  <div onclick="changeMonth(2)">February</div>
+                  <div onclick="changeMonth(3)">March</div>
+                  <div onclick="changeMonth(4)">April</div>
+                  <div onclick="changeMonth(5)">May</div>
+                  <div onclick="changeMonth(6)">June</div>
+                  <div onclick="changeMonth(7)">July</div>
+                  <div onclick="changeMonth(8)">August</div>
+                  <div onclick="changeMonth(9)">September</div>
+                  <div onclick="changeMonth(10)">October</div>
+                  <div onclick="changeMonth(11)">November</div>
+                  <div onclick="changeMonth(12)">December</div>
+               </div>
+            </div>
+            <div class="calendar">
+               <div class="calendar-wrapper">
+                  <div class="heading">
+                     <div class="info">
+                        <div class="month"></div>
+                     </div>
+                  </div>
+                  <div class="weekdays">
+                     <div style="color: #ff7920;">Sun</div>
+                     <div>Mon</div>
+                     <div>Tue</div>
+                     <div>Wed</div>
+                     <div>Thu</div>
+                     <div>Fri</div>
+                     <div>Sat</div>
+                  </div>
+                  <div class="date-wrapper"></div>
+               </div>
+            </div>
+            <div class="events">
+               <div class="events-wrapper">
+                  <div class="now-date"></div>
+                  <div class="event-heading">
+                     Events On This Month
+                  </div>
+                  <div class="event-list">
+                     <div class="nothing">There Is No Plans For This Day</div>
+                  </div>
+                  <div class="plan-heading">
+                     Plans For This Day
+                  </div>
+                  <div class="plan-list"></div>
+                  <div class="add-plan">Make New Plan</div>
+               </div>
+            </div>
+         </div>
+         <div class="menu-container clock">
+            <div class="left">
+               <div class="clock">
+                  <div class="hour">
+                     <div>
+                        <span></span>
+                     </div>
+                  </div>
+                  <div class="min">
+                     <div>
+                        <span></span>
+                     </div>
+                  </div>
+                  <div class="sec">
+                     <div>
+                        <span></span>
+                     </div>
+                  </div>
+               </div>
+               <div class="clock-number">
+                  <div class="hour-num">19</div>
+                  :
+                  <div class="min-num">15</div>
+                  :
+                  <div class="sec-num">45</div>
+               </div>
+            </div>
+            <div class="right" id="city-list">
+               <div class="caption">
+                  <span class="title">World Clock</span>
+                  <span class="add-city sort" data-sort="name">Add+</span>
+               </div>
+               <div class="city-wrapper"></div>
+
+               <!-- City List -->
+               <div class="city-list">
+                  <div class="search-form fuzzy-search">
+                     <input type="text" onclick="this.select()">
+                     <span class="cancel sort" data-sort="name">Cancel</span>
+                  </div>
+                  <div class="list"></div>
+               </div>
+            </div>
+         </div>
+         <div class="menu-container stopwatch">
+            <div class="left">
+               <div class="stopwatch">
+                  <div class="min">00</div>
+                  :
+                  <div class="sec">00</div>
+                  :
+                  <div class="milsec">00</div>
+               </div>
+
+               <div class="stopwatch-buttons">
+                  <div class="terminator">
+                     <div class="start">Start</div>
+                     <div class="stop">Stop</div>
+                  </div>
+                  <div class="setter">
+                     <div class="reset">Reset</div>
+                     <div class="lap">Lap</div>
+                     <div class="cover"></div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="right">
+               <div class="title">Laps</div>
+               <div class="putaran"></div>
+            </div>
+         </div>
+         <div class="menu-container timer">
+            <div class="left">
+               <div class="wrapper">
+                  <div class="setter"></div>
+                  <div class="starter">
+                     <div class="hour">00</div>
+                     :
+                     <div class="min">00</div>
+                     :
+                     <div class="sec">00</div>
+                  </div>
+               </div>
+
+               <div class="control-button">
+                  <div class="terminator">
+                     <span class="cancel">Cancel</span>
+                     <span class="start">Start</span>
+                  </div>
+                  <div class="transit">
+                     <span class="cover"></span>
+                     <span class="continue">Continue</span>
+                     <span class="pause">Pause</span>
+                  </div>
+               </div>
+            </div>
+            <div class="right">
+               <div class="title">Timers</div>
+               <div class="activities">
+                  <div class="add-button">+</div>
+
+                  <div class="activities-disable"></div>
+               </div>
+
+               <div class="add-activity">
+                  <div class="add-activity-header">
+                     <div class="add-cancel">Cancel</div>
+                     <input class="input-activity-name" placeholder="Activity Name ..."></input>
+                     <div class="add-confirm">Confirm</div>
+                  </div>
+                  <div class="input-activity-timer"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+<script src="index.js"></script>
+<script src="dist/picker.js"></script>
+<script src="js/data_events.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/list.js"></script>
+<script src="js/timezone.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/stopwatch.js"></script>
+<script src="js/timer.js"></script>
+
+<script>
+   var options = {
+      valueNames: ['name'],
+   };
+
+   var CITY = new List('city-list', options);
+
+   let Main = new Picker(document.querySelector('.menu-container.timer .setter'), {
+      date: '00:00:00',
+      headers: true,
+      controls: true,
+      inline: true,
+      rows: 3,
+      format: 'HH:mm:ss'
+   });
+
+   let AddActivity = new Picker(document.querySelector('.input-activity-timer'), {
+      date: '00:00:00',
+      controls: true,
+      inline: true,
+      rows: 3,
+      format: 'HH:mm:ss'
+   });
+</script>
+
+</html>

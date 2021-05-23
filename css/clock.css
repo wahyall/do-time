@@ -1,0 +1,715 @@
+@keyframes rotate {
+   from {
+      transform: rotate(0deg);
+   }
+
+   to {
+      transform: rotate(360deg);
+   }
+}
+
+.menu-container.clock {
+   width: 100%;
+   height: 650px;
+   background-color: #fafafa;
+   display: grid;
+   grid-template-columns: 40% 60%;
+   overflow: hidden;
+   position: relative;
+}
+
+.menu-container.clock .left {
+   display: grid;
+   grid-template-rows: 80% 20%;
+   place-items: center;
+   background: linear-gradient(to right, #ff7920, #ff924a);
+   box-shadow: 7px 0 8px rgba(255, 146, 74, .7);
+   z-index: 100;
+   overflow: hidden;
+   position: relative;
+}
+
+.menu-container.clock .right {
+   color: #091921;
+   overflow: hidden;
+   position: relative;
+   display: grid;
+   grid-template-rows: 15% 85%;
+}
+
+.menu-container.clock .clock {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 360px;
+   height: 360px;
+   position: relative;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   background-image: url(../img/clock.png);
+   background-size: cover;
+   border: 6px solid #fafafa;
+   border-radius: 50%;
+   background-color: #fafafa;
+   box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+      inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+      0 20px 20px rgba(0, 0, 0, 0.2),
+      inset 0 25px 25px rgba(0, 0, 0, 0.2);
+}
+
+.menu-container.clock .clock::before {
+   content: '';
+   position: absolute;
+   width: 15px;
+   height: 15px;
+   background-color: #091921;
+   border-radius: 50%;
+   z-index: 90;
+}
+
+
+.menu-container.clock .clock .hour,
+.menu-container.clock .clock .min,
+.menu-container.clock .clock .sec {
+   position: absolute;
+}
+
+.menu-container.clock .clock .hour,
+.hour div {
+   width: 160px;
+   height: 160px;
+   z-index: 9;
+}
+
+.menu-container.clock .clock .min,
+.min div {
+   width: 190px;
+   height: 190px;
+   z-index: 10;
+}
+
+.menu-container.clock .clock .sec,
+.sec div {
+   width: 230px;
+   height: 230px;
+   z-index: 11;
+}
+
+.hour div,
+.min div,
+.sec div {
+   display: flex;
+   justify-content: center;
+}
+
+.hour div span {
+   content: '';
+   position: absolute;
+   width: 8px;
+   height: 80px;
+   background-color: #ff7920;
+   z-index: 8;
+   border-radius: 6px 6px 0 0;
+   top: -1px;
+}
+
+.min div span {
+   content: '';
+   position: absolute;
+   width: 4px;
+   height: 120px;
+   background-color: #091921;
+   z-index: 9;
+   border-radius: 6px 6px 0 0;
+   top: -25px;
+}
+
+.sec div span {
+   content: '';
+   position: absolute;
+   width: 2px;
+   height: 150px;
+   background-color: #091921;
+   z-index: 10;
+   border-radius: 6px 6px 0 0;
+   top: -35px;
+}
+
+.hour div {
+   animation: rotate 86400s cubic-bezier(0, 0, 0, 0) infinite;
+}
+
+.min div {
+   animation: rotate 3600s cubic-bezier(0, 0, 0, 0) infinite;
+}
+
+.sec div {
+   animation: rotate 60s cubic-bezier(0, 0, 0, 0) infinite;
+}
+
+
+.hour div span {
+   transform-origin: bottom center;
+   transform: rotate(-60deg);
+}
+
+.min div span {
+   transform-origin: bottom center;
+   transform: rotate(60deg);
+}
+
+.sec div span {
+   transform-origin: bottom center;
+   transform: rotate(180deg);
+}
+
+.clock-number {
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   font-size: 3.8em;
+   font-family: 'Open Sans';
+   font-weight: 600;
+   color: #fafafa;
+   place-items: center;
+   margin-top: -80px;
+}
+
+/* City Wrapper */
+.city-wrapper {
+   width: 100%;
+   height: 100%;
+   overflow-y: auto;
+   overflow-x: hidden;
+}
+
+.nothing {
+   background-color: rgba(255, 121, 32, .3);
+   color: #ff7920;
+   padding: 20px 0;
+   text-align: center;
+   font-size: 14px;
+   font-family: 'Quicksand';
+}
+
+.right .caption {
+   margin: 25px 20px;
+   border-bottom: 2px solid #ff7920;
+   display: grid;
+   grid-template-columns: 200px 100px;
+   grid-template-rows: 40px;
+   justify-content: space-between;
+}
+
+.caption .title {
+   font-size: 1.8em;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 600;
+}
+
+.caption .add-city {
+   border-radius: 6px;
+   box-shadow: 4px 4px 6px rgba(255, 121, 32, 0.4);
+   border: 1px solid #ff7920;
+   font-family: 'Quicksand',
+      sans-serif;
+   color: #ff7920;
+   height: 22px;
+   padding: 4px 20px;
+   font-weight: 600;
+   margin: 0 auto;
+   cursor: pointer;
+   display: grid;
+   place-items: center;
+}
+
+.menu-container.clock .city {
+   display: grid;
+   grid-template-columns: 80px 50% 20% 5%;
+   grid-template-rows: 80px;
+   height: 80px;
+   font-size: 1.4em;
+   justify-content: space-evenly;
+   align-items: center;
+   margin-bottom: 40px;
+   width: 100%;
+}
+
+.menu-container.clock .city .trash {
+   background-color: #ff924a;
+   border-radius: 50%;
+   width: 25px;
+   height: 25px;
+   font-size: .7em;
+   display: grid;
+   place-items: center;
+   cursor: pointer;
+   opacity: .6;
+}
+
+.menu-container.clock .city .trash:hover {
+   opacity: 1;
+}
+
+.menu-container.clock .city .clock {
+   width: 100%;
+   height: 100%;
+   border: 3px solid #fafafa;
+   box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+      inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+      0 10px 10px rgba(0, 0, 0, 0.2),
+      inset 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-container.clock .city .clock::before {
+   width: 6px;
+   height: 6px;
+}
+
+.menu-container.clock .city .clock .hour,
+.menu-container.clock .city .hour div {
+   width: 32px;
+   height: 32px;
+}
+
+.menu-container.clock .city .clock .min,
+.menu-container.clock .city .min div {
+   width: 40px;
+   height: 40px;
+}
+
+.menu-container.clock .city .clock .sec,
+.menu-container.clock .city .sec div {
+   width: 50px;
+   height: 50px;
+}
+
+.menu-container.clock .city .hour div span {
+   width: 3px;
+   height: 20px;
+   top: -4px;
+}
+
+.menu-container.clock .city .min div span {
+   width: 2px;
+   height: 26px;
+   top: -6px;
+}
+
+.menu-container.clock .city .sec div span {
+   width: 1px;
+   height: 34px;
+   top: -9px;
+}
+
+.menu-container.clock .city .place .name {
+   font-size: 1.2em;
+   font-weight: 600;
+   margin: 5px 0;
+}
+
+.menu-container.clock .city .time {
+   justify-self: center;
+   font-size: 2.2em;
+   font-weight: 600;
+}
+
+.menu-container.clock .city .utc-offset {
+   font-size: 18px;
+   font-weight: 600;
+}
+
+.menu-container.clock .city-list {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   color: #091921;
+   background-color: #fafafa;
+   z-index: 90;
+   display: grid;
+   grid-template-rows: 8% 90%;
+   grid-template-columns: 1fr;
+   align-content: center;
+   transition: .2s;
+   transform: translateY(100%);
+}
+
+.menu-container.clock .city-list .search-form {
+   display: grid;
+   grid-template-columns: 50% 10%;
+   place-items: center;
+   justify-content: center;
+   gap: 20px;
+}
+
+.menu-container.clock .city-list .search-form input {
+   width: 100%;
+   height: 80%;
+   outline: none;
+   border: none;
+   border: 1px solid #ff7920;
+   border-radius: 20px;
+   padding: 0 15px;
+   box-sizing: border-box;
+   font-size: 1.2em;
+}
+
+.menu-container.clock .city-list .search-form .cancel {
+   background-color: #ff7920;
+   color: #fafafa;
+   height: 80%;
+   width: 80px;
+   border-radius: 20px;
+   display: grid;
+   place-items: center;
+   font-weight: 600;
+   cursor: pointer;
+}
+
+.menu-container.clock .city-list .list {
+   margin: 20px;
+   overflow: auto;
+}
+
+.menu-container.clock .city-list .list .item {
+   margin: 10px 20px;
+   border-bottom: 1px solid rgba(255, 121, 32, .4);
+   cursor: pointer;
+}
+
+.menu-container.clock .city-list .list .item .name {
+   font-size: 1.5em;
+   font-weight: 600;
+}
+
+.menu-container.clock .city-list .list .item .utc-offset {
+   font-size: 18px;
+   font-weight: 600;
+}
+
+
+/* Responsive Brealpoints */
+@media (max-width: 1200px) {
+   .menu-container.clock {
+      width: 100%;
+   }
+
+   .menu-container.clock .left .clock {
+      width: 260px;
+      height: 260px;
+   }
+
+   .menu-container.clock .clock .hour,
+   .hour div {
+      width: 100px;
+      height: 100px;
+      z-index: 9;
+   }
+
+   .menu-container.clock .clock .min,
+   .min div {
+      width: 130px;
+      height: 130px;
+      z-index: 10;
+   }
+
+   .menu-container.clock .clock .sec,
+   .sec div {
+      width: 150px;
+      height: 150px;
+      z-index: 11;
+   }
+
+   .left .clock .hour div span {
+      height: 50px;
+   }
+
+   .left .clock .min div span {
+      height: 90px;
+   }
+
+   .left .clock .sec div span {
+      height: 110px;
+   }
+
+   .clock-number {
+      font-size: 3em;
+   }
+
+   .menu-container.clock .city {
+      font-size: 1.2em;
+   }
+}
+
+@media (max-width: 992px) {
+   .menu-container.clock {
+      width: 100%;
+      height: 100vh;
+   }
+
+   .menu-container.clock .left {
+      grid-template-rows: 40% 20%;
+      align-content: center;
+   }
+
+   .menu-container.clock .right .caption {
+      margin: 30px 20px;
+   }
+
+   .menu-container.clock .left .clock {
+      width: 220px;
+      height: 220px;
+   }
+
+   .menu-container.clock .clock .hour,
+   .hour div {
+      width: 80px;
+      height: 80px;
+      z-index: 9;
+   }
+
+   .menu-container.clock .clock .min,
+   .min div {
+      width: 110px;
+      height: 110px;
+      z-index: 10;
+   }
+
+   .menu-container.clock .clock .sec,
+   .sec div {
+      width: 105px;
+      height: 105px;
+      z-index: 11;
+   }
+
+   .left .clock .hour div span {
+      height: 40px;
+   }
+
+   .left .clock .min div span {
+      height: 80px;
+   }
+
+   .left .clock .sec div span {
+      height: 90px;
+   }
+
+   .clock-number {
+      font-size: 2.5em;
+      margin-top: 0;
+   }
+
+   .menu-container.clock .city {
+      grid-template-columns: 70px 50% 20% 5%;
+      grid-template-rows: 70px;
+      font-size: 1em;
+      margin-bottom: 20px;
+   }
+
+   .menu-container.clock .city .place {
+      font-size: 1.2em;
+      margin-left: 10px;
+   }
+}
+
+@media (max-width: 768px) {
+   .menu-container.clock {
+      grid-template-columns: 1fr;
+      grid-template-rows: 35% 65%;
+      height: calc(100vh - 60px);
+   }
+
+   .menu-container.clock .left {
+      grid-template-rows: 1fr;
+      grid-template-columns: 40% 60%;
+   }
+
+   .menu-container.clock .right .caption {
+      margin: 10px 20px;
+   }
+
+   .menu-container.clock .left .clock {
+      width: 180px;
+      height: 180px;
+   }
+
+   .left .clock::before {
+      width: 10px;
+      height: 10px;
+   }
+
+   .menu-container.clock .clock .hour,
+   .hour div {
+      width: 70px;
+      height: 70px;
+      z-index: 9;
+   }
+
+   .menu-container.clock .clock .min,
+   .min div {
+      width: 70px;
+      height: 70px;
+      z-index: 10;
+   }
+
+   .menu-container.clock .clock .sec,
+   .sec div {
+      width: 90px;
+      height: 90px;
+      z-index: 11;
+   }
+
+   .left .clock .hour div span {
+      height: 40px;
+      width: 6px;
+   }
+
+   .left .clock .min div span {
+      height: 60px;
+   }
+
+   .left .clock .sec div span {
+      height: 80px;
+   }
+
+   .clock-number {
+      font-size: 3.4em;
+   }
+
+   .menu-container.clock .city {
+      grid-template-columns: 80px 50% 20% 5%;
+      grid-template-rows: 80px;
+      font-size: 1.2em;
+   }
+
+   .menu-container.clock .city .trash {
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+   }
+
+   .menu-container.clock .city-list .list .item .name {
+      font-size: 1.2em;
+      font-weight: 600;
+   }
+
+   .menu-container.clock .city-list .list .item .utc-offset {
+      font-size: 14px;
+      font-weight: 600;
+   }
+
+   .menu-container.clock .city-list .search-form {
+      grid-template-columns: 50% 20%;
+   }
+
+   .menu-container.clock .city-list .search-form input {
+      padding: 6px 15px;
+   }
+}
+
+@media (max-width: 576px) {
+   .menu-container.clock .left {
+      grid-template-columns: 1fr;
+      grid-template-rows: 70% 30%;
+   }
+
+   .menu-container.timer .right {
+      grid-template-rows: 20% 80%;
+   }
+
+   .menu-container.clock .right .caption {
+      margin: 10px 20px;
+   }
+
+   .menu-container.clock .left .clock {
+      width: 120px;
+      height: 120px;
+   }
+
+   .menu-container.clock .clock .hour,
+   .hour div {
+      width: 60px;
+      height: 60px;
+      z-index: 9;
+   }
+
+   .menu-container.clock .clock .min,
+   .min div {
+      width: 40px;
+      height: 40px;
+      z-index: 10;
+   }
+
+   .menu-container.clock .clock .sec,
+   .sec div {
+      width: 85px;
+      height: 85px;
+      z-index: 11;
+   }
+
+   .left .clock .hour div span {
+      height: 30px;
+      width: 6px;
+   }
+
+   .left .clock .min div span {
+      height: 40px;
+      top: -20px;
+   }
+
+   .left .clock .sec div span {
+      height: 50px;
+      top: -8px;
+   }
+
+   .clock-number {
+      font-size: 2.2em;
+   }
+
+   .menu-container.clock .city {
+      grid-template-columns: 60px 50% 20% 5%;
+      grid-template-rows: 60px;
+      font-size: .8em;
+      margin-bottom: 10px;
+   }
+
+   .menu-container.clock .city .utc-offset {
+      font-size: inherit;
+   }
+
+   .menu-container.clock .city .clock .hour,
+   .menu-container.clock .city .hour div {
+      width: 26px;
+      height: 26px;
+   }
+
+   .menu-container.clock .city .clock .min,
+   .menu-container.clock .city .min div {
+      width: 25px;
+      height: 25px;
+   }
+
+   .menu-container.clock .city .clock .sec,
+   .menu-container.clock .city .sec div {
+      width: 40px;
+      height: 40px;
+   }
+
+   .menu-container.clock .city .hour div span {
+      width: 3px;
+      height: 16px;
+      top: -4px;
+   }
+
+   .menu-container.clock .city .min div span {
+      width: 2px;
+      height: 18px;
+      top: -6px;
+   }
+
+   .menu-container.clock .city .sec div span {
+      width: 1px;
+      height: 26px;
+      top: -6px;
+   }
+}
