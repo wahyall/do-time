@@ -1,3 +1,3 @@
-# do-time
+# Do Time
 
 Visit Website: https://do-time.netlify.app
